@@ -1,0 +1,22 @@
+#To find the total no of AP that can be formed from a given array
+
+#Approach The Ap should be of at least 3 number long so, constitue a new array where each postion of array define the no of AP that can be formed till that index Number
+
+Initialize the first two position as 0 as no AP can be formed till that number 
+
+iterate from range(2, len(arry))
+
+if for aposition difference between current posi no and prev posi no is same as diff between prev posi no and (prev posi no -1) than that meeen they are in AP
+
+so, we can say that we find a new AP , so total no of till that number is prev Ap formaulated +1(as new ap can be combine with them and it formaulate one on its own) 
+
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        size=len(nums)
+        dp=[0]*(size+1)
+        dp[0]=0
+        dp[1]=0
+        for i in range(2,size):
+            if (nums[i]-nums[i-1])==(nums[i-1]-nums[i-2]):
+                dp[i]=dp[i-1]+1
+        return sum(dp)        
