@@ -1,4 +1,5 @@
 # leetcode 946
+# approach to find weather the given two list are valid stack push and pop operation
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
         size=len(pushed)
